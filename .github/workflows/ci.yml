@@ -1,0 +1,19 @@
+name: ci
+on:
+  pull_request:
+  push:
+    branches: [main]
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 -m py_compile calc/*.py tests/*.py
+      - run: python3 -m tests.check_migrations
+  unit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # Long enough that landing order matters, short enough for a test program.
+      - run: sleep 45
+      - run: python3 -m unittest discover -s tests -v
