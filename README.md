@@ -17,3 +17,5 @@ Run both checks from the repository root before opening a PR:
 python3 -m unittest discover -s tests
 python3 -m tests.check_migrations
 ```
+
+Set `PYTHONDONTWRITEBYTECODE=1` so test runs leave no `__pycache__` behind.
