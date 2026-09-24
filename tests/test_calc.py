@@ -18,5 +18,14 @@ class MultiplyTest(unittest.TestCase):
         self.assertEqual(calc.multiply(4, 3), 12)
 
 
+class DivideTest(unittest.TestCase):
+    def test_divide(self):
+        self.assertEqual(calc.divide(6, 3), 2)
+
+    def test_divide_by_zero(self):
+        with self.assertRaises(ZeroDivisionError):
+            calc.divide(1, 0)
+
+
 if __name__ == "__main__":
     unittest.main()
